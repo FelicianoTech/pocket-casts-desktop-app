@@ -1,5 +1,5 @@
 const electron = require( "electron" );
-const { shell, app, BrowserWindow } = electron;
+const { shell, app, BrowserWindow, globalShortcut } = electron;
 const HOMEPAGE = "https://play.pocketcasts.com/web/"
 
 let mainWindow;
@@ -23,6 +23,17 @@ app.on( "ready", () => {
 			ev.preventDefault();
 			shell.openExternal( url );
 		}
+	});
+
+	// Register media controls
+	globalShortcut.register( 'MediaPlayPause', () => {
+		window.webContents.executeJavaScript( "document.querySelector( '.play_pause_button' ).click()");
+	});
+	globalShortcut.register( 'MediaPreviousTrack', () => {
+		window.webContents.executeJavaScript( "document.querySelector( '.skip_back_button' ).click()");
+	});
+	globalShortcut.register( 'MediaNextTrack', () => {
+		window.webContents.executeJavaScript( "document.querySelector( '.skip_forward_button' ).click()");
 	});
 
 	window.on( "closed", () => {
