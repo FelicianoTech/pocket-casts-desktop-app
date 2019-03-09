@@ -1,6 +1,6 @@
 const electron = require( "electron" );
 const { shell, app, BrowserWindow } = electron;
-const HOMEPAGE = "https://playbeta.pocketcasts.com/web/"
+const HOMEPAGE = "https://play.pocketcasts.com/web/"
 
 let mainWindow;
 
