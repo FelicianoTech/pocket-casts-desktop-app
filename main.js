@@ -1,8 +1,11 @@
 const electron = require( "electron" );
-const { shell, app, BrowserWindow, globalShortcut } = electron;
+const path = require('path');
+const { shell, app, Tray, Menu, BrowserWindow, globalShortcut } = electron;
 const HOMEPAGE = "https://play.pocketcasts.com/web/"
+const iconPath = path.join(__dirname, 'tray-icon.png');
 
 let mainWindow;
+let appIcon = null;
 
 app.on( "ready", () => {
 	window = new BrowserWindow({
@@ -12,6 +15,19 @@ app.on( "ready", () => {
 			nodeIntegration: false
 		}
 	});
+  
+  var contextMenu = Menu.buildFromTemplate([
+    { 
+      label: 'Quit',
+      accelerator: 'Alt+F4',
+      click: function(){
+        app.quit();
+      }
+    }
+  ]);
+  appIcon = new Tray(iconPath);
+  appIcon.setToolTip('Pocket Casts');
+  appIcon.setContextMenu(contextMenu);
 
 	window.setMenuBarVisibility( false );
 	window.loadURL( HOMEPAGE );
