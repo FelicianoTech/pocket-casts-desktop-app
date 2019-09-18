@@ -8,7 +8,7 @@ let mainWindow;
 let appIcon = null;
 
 app.on( "ready", () => {
-	window = new BrowserWindow({
+	mainWindow = new BrowserWindow({
 		width: 1200,
 		height: 900,
 		webPreferences: {
@@ -17,6 +17,36 @@ app.on( "ready", () => {
 	});
   
   var contextMenu = Menu.buildFromTemplate([
+    { 
+      label: 'Show',
+      click: function(){
+        mainWindow.show();
+      }
+    },
+    { 
+      type: 'separator' 
+    },
+    { 
+      label: 'Play / Pause',
+      click: function(){
+		    mainWindow.webContents.executeJavaScript( "document.querySelector( '.play_pause_button' ).click()");
+      }
+    },
+    { 
+      label: 'Skip forward 30 sec',
+      click: function(){
+		    mainWindow.webContents.executeJavaScript( "document.querySelector( '.skip_forward_button' ).click()");
+      }
+    },
+    { 
+      label: 'Skip back 15 sec',
+      click: function(){
+		    mainWindow.webContents.executeJavaScript( "document.querySelector( '.skip_back_button' ).click()");
+      }
+    },
+    { 
+      type: 'separator' 
+    },
     { 
       label: 'Quit',
       accelerator: 'Alt+F4',
@@ -29,10 +59,10 @@ app.on( "ready", () => {
   appIcon.setToolTip('Pocket Casts');
   appIcon.setContextMenu(contextMenu);
 
-	window.setMenuBarVisibility( false );
-	window.loadURL( HOMEPAGE );
+	mainWindow.setMenuBarVisibility( false );
+	mainWindow.loadURL( HOMEPAGE );
 
-	window.webContents.on( "will-navigate", ( ev, url ) => {
+	mainWindow.webContents.on( "will-navigate", ( ev, url ) => {
 		parts = url.split( '/' );
 
 		if( parts[0] + "//" + parts[2] != HOMEPAGE ){
@@ -43,22 +73,32 @@ app.on( "ready", () => {
 
 	// Register media controls
 	globalShortcut.register( 'MediaPlayPause', () => {
-		window.webContents.executeJavaScript( "document.querySelector( '.play_pause_button' ).click()");
+		mainWindow.webContents.executeJavaScript( "document.querySelector( '.play_pause_button' ).click()");
 	});
 	globalShortcut.register( 'MediaPreviousTrack', () => {
-		window.webContents.executeJavaScript( "document.querySelector( '.skip_back_button' ).click()");
+		mainWindow.webContents.executeJavaScript( "document.querySelector( '.skip_back_button' ).click()");
 	});
 	globalShortcut.register( 'MediaNextTrack', () => {
-		window.webContents.executeJavaScript( "document.querySelector( '.skip_forward_button' ).click()");
+		mainWindow.webContents.executeJavaScript( "document.querySelector( '.skip_forward_button' ).click()");
 	});
 
-	window.on( "closed", () => {
-		window = null;
-	});
+
+  mainWindow.on( "close", (event) => {
+    if(app.quitting){
+      mainWindow = null;
+    }
+    else{
+      event.preventDefault();
+      mainWindow.hide();
+    }
+  });
 });
 
 app.on( "window-all-closed", () => {
+  console.log("window-all-closed");
 	if( process.platform !== "darwin" ){
 		app.quit()
 	}
 });
+
+app.on('before-quit', () => app.quitting = true)
