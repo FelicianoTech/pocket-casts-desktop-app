@@ -7,6 +7,10 @@ const iconPath = path.join(__dirname, 'tray-icon.png');
 let mainWindow;
 let appIcon = null;
 
+// Avoid Multiple Instances
+const gotTheLock = app.requestSingleInstanceLock();
+if (!gotTheLock) { app.quit(); }
+
 app.on( "ready", () => {
 	mainWindow = new BrowserWindow({
 		width: 1200,
