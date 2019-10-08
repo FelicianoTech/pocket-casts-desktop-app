@@ -87,14 +87,8 @@ app.on( "ready", () => {
 	});
 
 
-  mainWindow.on( "close", (event) => {
-    if(app.quitting){
+  mainWindow.on( "closed", () => {
       mainWindow = null;
-    }
-    else{
-      event.preventDefault();
-      mainWindow.hide();
-    }
   });
 });
 
@@ -104,5 +98,3 @@ app.on( "window-all-closed", () => {
 		app.quit()
 	}
 });
-
-app.on('before-quit', () => app.quitting = true)
