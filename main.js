@@ -1,7 +1,7 @@
 const electron = require( "electron" );
 const path = require('path');
 const { shell, app, Tray, Menu, BrowserWindow, globalShortcut } = electron;
-const HOMEPAGE = "https://play.pocketcasts.com/web/"
+const HOMEPAGE = "https://play.pocketcasts.com/podcasts"
 const iconPath = path.join(__dirname, 'tray-icon.png');
 
 let mainWindow;
