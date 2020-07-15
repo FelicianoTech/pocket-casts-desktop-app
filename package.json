@@ -33,14 +33,17 @@
 					"target": "snap"
 				}
 			],
-			"desktop": {
-				"Icon": "/usr/share/icons/hicolor/0x0/apps/pocket-casts.png"
-			}
+			"icon": "icon.png"
 		},
 		"snap": {
 			"summary": "The Pocket Casts webapp, packaged for the desktop.",
 			"confinement": "strict",
 			"grade": "stable"
+		},
+		"deb": {
+			"desktop": {
+				"Icon": "/usr/share/icons/hicolor/0x0/apps/pocket-casts.png"
+			}
 		}
 	},
 	"devDependencies": {
