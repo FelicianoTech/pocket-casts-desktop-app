@@ -33,7 +33,9 @@
 					"target": "snap"
 				}
 			],
-			"icon": "icon.png"
+			"desktop": {
+				"Icon": "/usr/share/icons/hicolor/0x0/apps/pocket-casts.png"
+			}
 		},
 		"snap": {
 			"summary": "The Pocket Casts webapp, packaged for the desktop.",
