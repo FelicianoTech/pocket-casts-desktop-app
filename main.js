@@ -3,22 +3,71 @@ const path = require('path');
 const { shell, app, Tray, Menu, BrowserWindow, globalShortcut } = electron;
 const HOMEPAGE = "https://play.pocketcasts.com/podcasts"
 const iconPath = path.join(__dirname, 'tray-icon.png');
+const fs = require('fs');
 
 let mainWindow;
 let appIcon = null;
+
+class Store {
+  constructor(opts) {
+      const userDataPath = (electron.app || electron.remote.app).getPath('userData');
+      this.path = path.join(userDataPath, opts.configName + '.json');
+
+      this.data = parseDataFile(this.path, opts.defaults);
+  }
+
+  get(key) {
+      return this.data[key];
+  }
+
+  set(key, val) {
+      this.data[key] = val;
+      fs.writeFileSync(this.path, JSON.stringify(this.data));
+  }
+}
+
+function parseDataFile(filePath, defaults) {
+  try {
+      return JSON.parse(fs.readFileSync(filePath));
+  } catch (error) {
+      return defaults;
+  }
+}
+
+function getValidatedWindowDimension(dimen) {
+  if (dimen <= 0) return 1
+  else return dimen
+}
 
 // Avoid Multiple Instances
 const gotTheLock = app.requestSingleInstanceLock();
 if (!gotTheLock) { app.quit(); }
 
 app.on( "ready", () => {
+  const userPrefs = new Store({
+    configName: 'prefs',
+    defaults: {
+      windowWidth: 1200, 
+      windowHeight: 900
+    }
+  });
+
 	mainWindow = new BrowserWindow({
-		width: 1200,
-		height: 900,
+		width: getValidatedWindowDimension(userPrefs.get('windowWidth')),
+		height: getValidatedWindowDimension(userPrefs.get('windowHeight')),
 		webPreferences: {
 			nodeIntegration: false
-		}
-	});
+    },
+    show: false
+  });
+  
+  if (userPrefs.get("windowMaximized") == true){
+    // if the user starts the app maximized, set the unmaximized size to the default window size
+    mainWindow.setSize(1200, 900)
+    mainWindow.maximize()
+  }
+
+  mainWindow.show()
   
   var contextMenu = Menu.buildFromTemplate([
     { 
@@ -84,8 +133,22 @@ app.on( "ready", () => {
 	});
 	globalShortcut.register( 'MediaNextTrack', () => {
 		mainWindow.webContents.executeJavaScript( "document.querySelector( '.skip_forward_button' ).click()");
-	});
+  });
+  
+  mainWindow.on( "resize", () => {
+    let { width, height } = mainWindow.getBounds();
 
+    userPrefs.set('windowWidth', width);
+    userPrefs.set('windowHeight', height);
+  });
+
+  mainWindow.on( "maximize", () => {
+    userPrefs.set('windowMaximized', true);
+  });
+
+  mainWindow.on( "unmaximize", () => {
+    userPrefs.set('windowMaximized', false);
+  });
 
   mainWindow.on( "closed", () => {
       mainWindow = null;
