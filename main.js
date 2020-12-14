@@ -2,9 +2,9 @@ const electron = require( "electron" );
 const path = require('path');
 const { shell, app, Tray, Menu, BrowserWindow, globalShortcut } = electron;
 const HOMEPAGE = "https://play.pocketcasts.com/podcasts"
-const iconPath = path.join(__dirname, 'tray-icon.png');
 const fs = require('fs');
 
+let iconPath = path.join(__dirname, 'tray-icon.png');
 let mainWindow;
 let appIcon = null;
 
@@ -108,6 +108,9 @@ app.on( "ready", () => {
       }
     }
   ]);
+  if (iconPath.includes('/app.asar/')){
+		iconPath = iconPath.replace('/app.asar/', '/')
+  }
   appIcon = new Tray(iconPath);
   appIcon.setToolTip('Pocket Casts');
   appIcon.setContextMenu(contextMenu);

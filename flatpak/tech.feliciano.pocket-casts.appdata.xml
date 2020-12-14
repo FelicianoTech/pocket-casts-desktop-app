@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>tech.feliciano.pocket-casts</id>
+  <launchable type="desktop-id">tech.feliciano.pocket-casts.desktop</launchable>
+  <name>Pocket Casts</name>
+  <developer_name>Ricardo N Feliciano</developer_name>
+  <summary>Online podcast player</summary>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <url type="homepage">https://www.pocketcasts.com/</url>
+  <description>
+    <p>Pocket Casts is the world's most powerful podcast player. It's a great app to discover and listen to your favorite podcasts. Many blogs have deemed Pocket Casts the best podcatcher around.</p>
+    <p>This is an Electron wrapper around the Pocket Casts web player. You need to have a pre-existing Pocket Casts account (it's cheap and worth the money) to use this app</p>
+    <p>This wrapper is not verified by, affiliated with, or supported by Pocket Casts or Podcast Media LLC.</p>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+      <image type="source">https://github.com/felicianotech/pocket-casts-desktop-app/raw/master/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+</component>

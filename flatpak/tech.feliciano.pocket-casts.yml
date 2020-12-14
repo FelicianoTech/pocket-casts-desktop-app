@@ -14,9 +14,8 @@ finish-args:
   - --socket=x11
   - --socket=pulseaudio
   - --share=network
-  - --env=TMPDIR=/tmp
   - --talk-name=org.kde.StatusNotifierWatcher
-  - --device=dri
+  - --own-name=org.mpris.MediaPlayer2.chromium.*
 modules:
   - name: pocket-casts
     buildsystem: simple
@@ -28,7 +27,7 @@ modules:
         npm_config_nodedir: '/usr/lib/sdk/node14'
     sources:
       - type: dir
-        path: dist/linux-unpacked
+        path: ../dist/linux-unpacked
         dest: main
       - type: script
         dest-filename: run.sh
@@ -47,8 +46,8 @@ modules:
       - 'install -Dm 644 icon.png /app/share/icons/tech.feliciano.pocket-casts.png'
     sources:
       - type: file
-        path: appdata/tech.feliciano.pocket-casts.appdata.xml
+        path: ../flatpak/tech.feliciano.pocket-casts.appdata.xml
       - type: file
-        path: appdata/tech.feliciano.pocket-casts.desktop
+        path: ../flatpak/tech.feliciano.pocket-casts.desktop
       - type: file
-        path: icon.png
+        path: ../icon.png
