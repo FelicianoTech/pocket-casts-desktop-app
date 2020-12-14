@@ -16,6 +16,7 @@ finish-args:
   - --share=network
   - --talk-name=org.kde.StatusNotifierWatcher
   - --own-name=org.mpris.MediaPlayer2.chromium.*
+  - --filesystem=/tmp
 modules:
   - name: pocket-casts
     buildsystem: simple
