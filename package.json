@@ -22,6 +22,11 @@
 	"build": {
 		"appId": "tech.feliciano.pocket-casts",
 		"productName": "Pocket Casts",
+		"files": [
+			"!flatpak-build",
+			"!appdata",
+			"!.flatpak-builder"
+		],
 		"linux": {
 			"synopsis": "The Pocket Casts webapp, packaged for the desktop.",
 			"category": "Audio;AudioVideo",
@@ -46,6 +51,7 @@
 			}
 		}
 	},
+	
 	"devDependencies": {
 		"electron": "^9.3.1",
 		"electron-builder": "^22.7.0"
