@@ -35,6 +35,10 @@ Just open the store up and search for "Pocket Casts".
 We publish a `.deb` file for each release in GitHub Releases.
 Check out the [releases page](https://github.com/felicianotech/pocket-casts-desktop-app/releases) to find them.
 
+### .flatpak
+
+Starting with v0.6.0, there is a Flatpak file available on the [releases page](https://github.com/felicianotech/pocket-casts-desktop-app/releases).
+
 ### macOS
 
 I don't currently publish any packages for macOS.
