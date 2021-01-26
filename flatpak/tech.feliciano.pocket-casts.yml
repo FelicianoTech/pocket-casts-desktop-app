@@ -1,0 +1,54 @@
+app-id: tech.feliciano.pocket-casts
+runtime: org.freedesktop.Platform
+runtime-version: 20.08
+branch: stable
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.node14
+base: org.electronjs.Electron2.BaseApp
+base-version: 20.08
+command: run.sh
+separate-locales: false
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=pulseaudio
+  - --share=network
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --own-name=org.mpris.MediaPlayer2.chromium.*
+  - --filesystem=/tmp
+modules:
+  - name: pocket-casts
+    buildsystem: simple
+    build-options:
+      append-path: /usr/lib/sdk/node14/bin
+      env:
+        CHROMEDRIVER_SKIP_DOWNLOAD: 'true'
+        ELECTRON_CACHE: '/run/build/pocket-cast-desktop/flatpak-node/electron-cache'
+        npm_config_nodedir: '/usr/lib/sdk/node14'
+    sources:
+      - type: dir
+        path: ../dist/linux-unpacked
+        dest: main
+      - type: script
+        dest-filename: run.sh
+        commands:
+          - /app/main/pocket-casts --no-sandbox
+    build-commands:
+      - ls -lah
+      - mkdir -p /app/main /app/bin
+      - cp -ra main/* /app/main/
+      - install run.sh /app/bin/
+  - name: appdata
+    buildsystem: simple
+    build-commands:
+      - 'install -Dm 644 tech.feliciano.pocket-casts.appdata.xml /app/share/metainfo/tech.feliciano.pocket-casts.appdata.xml'
+      - 'install -Dm 644 tech.feliciano.pocket-casts.desktop /app/share/applications/tech.feliciano.pocket-casts.desktop'
+      - 'install -Dm 644 icon.png /app/share/icons/tech.feliciano.pocket-casts.png'
+    sources:
+      - type: file
+        path: ../flatpak/tech.feliciano.pocket-casts.appdata.xml
+      - type: file
+        path: ../flatpak/tech.feliciano.pocket-casts.desktop
+      - type: file
+        path: ../icon.png

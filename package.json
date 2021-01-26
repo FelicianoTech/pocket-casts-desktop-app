@@ -17,11 +17,17 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "electron .",
 		"dist": "electron-builder",
+		"dist-flatpak": "rm -rf dist/flatpak && flatpak-builder --repo=dist/flatpak flatpak-build flatpak/tech.feliciano.pocket-casts.yml --force-clean && flatpak build-bundle dist/flatpak dist/pocket-casts.flatpak tech.feliciano.pocket-casts stable",
 		"pack": "electron-builder --dir"
 	},
 	"build": {
 		"appId": "tech.feliciano.pocket-casts",
 		"productName": "Pocket Casts",
+		"files": [
+			"!flatpak-build",
+			"!flatpak",
+			"!.flatpak-builder"
+		],
 		"linux": {
 			"synopsis": "The Pocket Casts webapp, packaged for the desktop.",
 			"category": "Audio;AudioVideo",
@@ -44,8 +50,15 @@
 			"desktop": {
 				"Icon": "/usr/share/icons/hicolor/0x0/apps/pocket-casts.png"
 			}
-		}
+		},
+		"extraResources": [
+			{
+				"from": "tray-icon.png",
+				"to": "tray-icon.png"
+			}
+		]
 	},
+	
 	"devDependencies": {
 		"electron": "^9.3.1",
 		"electron-builder": "^22.7.0"

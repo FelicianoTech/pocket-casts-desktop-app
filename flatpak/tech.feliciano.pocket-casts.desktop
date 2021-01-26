@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Pocket Casts
+Exec=run.sh
+Terminal=false
+Type=Application
+Icon=tech.feliciano.pocket-casts
+Categories=Audio;
