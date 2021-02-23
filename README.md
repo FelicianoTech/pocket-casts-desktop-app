@@ -15,7 +15,11 @@ You can purchase Pocket Casts on their [official website](https://www.pocketcast
 
 ## Installation
 
-### Snap Package (recommended) - For Ubuntu, most Ubuntu flavors, elementary OS, Debian, Fedora, and more
+### Flatpak Package - For Debian, Fedora, elementary OS, and more
+
+[![Download on Flathub](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Flathub-badge-en.svg/240px-Flathub-badge-en.svg.png)](https://flathub.org/apps/details/tech.feliciano.pocket-casts)
+
+### Snap Package - For Ubuntu and most Ubuntu flavors
 
 The Pocket Casts desktop app can be installed via snap on Ubuntu 16.04, Ubuntu 18.04+, elementary OS 5, and many Linux distros with `snapd` installed  by running:
 
