@@ -1,6 +1,6 @@
 ![Pocket Casts for Desktop banner](./banner.png)
 
-# Pocket Casts Desktop App [![CircleCI Build Status](https://circleci.com/gh/felicianotech/pocket-casts-desktop-app.svg?style=shield)](https://circleci.com/gh/felicianotech/pocket-casts-desktop-app) [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/felicianotech/pocket-casts-desktop-app/master/LICENSE)
+# Pocket Casts Desktop App [![CircleCI Build Status](https://circleci.com/gh/felicianotech/pocket-casts-desktop-app.svg?style=shield)](https://circleci.com/gh/felicianotech/pocket-casts-desktop-app) [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/felicianotech/pocket-casts-desktop-app/trunk/LICENSE)
 
 Pocket Casts is the world's most powerful podcast player.
 It's a great app to discover and listen to your favorite podcasts.
