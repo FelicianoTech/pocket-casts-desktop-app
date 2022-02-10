@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  node: circleci/node@5.0
+
 workflows:
   main:
     jobs:
@@ -24,12 +27,14 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/node:16.0
+      - image: cimg/node:16.14
     steps:
       - checkout
       - run:
           name: "Download Dependancies"
           command: npm install
+      - node/install-packages:
+          include-branch-in-cache-key: false
       - run:
           name: "Build"
           command: |
