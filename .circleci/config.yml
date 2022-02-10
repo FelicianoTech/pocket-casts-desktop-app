@@ -38,7 +38,7 @@ jobs:
       - run:
           name: "Build"
           command: |
-            npm run dist
+            npm run make -- --arch=x64,arm64
   deb-publish:
     docker:
       - image: cimg/base:current

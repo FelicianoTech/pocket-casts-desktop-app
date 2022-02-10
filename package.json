@@ -15,10 +15,10 @@
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "electron .",
-		"dist": "electron-builder",
+		"start": "electron-forge start",
 		"dist-flatpak": "rm -rf dist/flatpak && flatpak-builder --repo=dist/flatpak flatpak-build flatpak/tech.feliciano.pocket-casts.yml --force-clean && flatpak build-bundle dist/flatpak dist/pocket-casts.flatpak tech.feliciano.pocket-casts stable",
-		"pack": "electron-builder --dir"
+		"package": "electron-forge package",
+		"make": "electron-forge make"
 	},
 	"build": {
 		"appId": "tech.feliciano.pocket-casts",
@@ -59,7 +59,26 @@
 		]
 	},
 	"devDependencies": {
-		"electron": "^17.0.0",
-		"electron-builder": "^22.7.0"
+		"@electron-forge/cli": "^6.0.0-beta.63",
+		"@electron-forge/maker-deb": "^6.0.0-beta.63",
+		"@electron-forge/maker-zip": "^6.0.0-beta.63",
+		"electron": "^17.0.0"
+	},
+	"config": {
+		"forge": {
+			"packagerConfig": {},
+			"makers": [
+				{
+					"name": "@electron-forge/maker-zip",
+					"platforms": [
+						"darwin"
+					]
+				},
+				{
+					"name": "@electron-forge/maker-deb",
+					"config": {}
+				}
+			]
+		}
 	}
 }

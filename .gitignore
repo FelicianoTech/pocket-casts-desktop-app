@@ -2,3 +2,4 @@ dist
 node_modules
 .flatpak-builder
 flatpak-build
+out/
