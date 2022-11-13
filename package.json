@@ -61,6 +61,7 @@
 	"devDependencies": {
 		"@electron-forge/cli": "^6.0.1",
 		"@electron-forge/maker-deb": "^6.0.1",
+		"@electron-forge/maker-flatpak": "^6.0.1",
 		"@electron-forge/maker-zip": "^6.0.0-beta.63",
 		"electron": "^21.2.3"
 	},
@@ -77,6 +78,14 @@
 				{
 					"name": "@electron-forge/maker-deb",
 					"config": {}
+				},
+				{
+					"name": "@electron-forge/maker-flatpak",
+					"config": {
+						"options": {
+							"categories": [ "Audio" ]
+						}
+					}
 				}
 			]
 		}

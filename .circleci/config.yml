@@ -31,8 +31,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Install Dependancies"
-          command: sudo apt-get update && sudo apt-get install --yes dpkg fakeroot
+          name: "Install Dependencies"
+          command: |
+            sudo apt-get update && sudo apt-get install --yes \
+              dpkg \
+              eu-strip \
+              fakeroot \
+              flatpak \
+              flatpak-builder
       - node/install-packages
       - run:
           name: "Build"
