@@ -16,6 +16,13 @@ workflows:
             tags:
               # Simplified SemVer regex
               only: /^v\d+\.\d+\.\d+$/
+      - deb-publish:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              # Simplified SemVer regex
+              only: /^v\d+\.\d+\.\d+$/
 
 jobs:
   build:
