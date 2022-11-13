@@ -27,9 +27,12 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/node:16.14
+      - image: cimg/node:lts
     steps:
       - checkout
+      - run:
+          name: "Install Dependancies"
+          command: sudo apt-get update && sudo apt-get install --yes dpkg fakeroot
       - node/install-packages
       - run:
           name: "Build"
@@ -39,7 +42,7 @@ jobs:
           path: out/make
   deb-publish:
     docker:
-      - image: cimg/base:current
+      - image: cimg/base:2022.11
     steps:
       - attach_workspace:
           at: .
