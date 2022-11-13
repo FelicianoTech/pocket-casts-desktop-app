@@ -15,7 +15,7 @@
   </description>
   <screenshots>
     <screenshot type="default">
-      <image type="source">https://github.com/felicianotech/pocket-casts-desktop-app/raw/master/screenshot.png</image>
+      <image type="source">https://raw.githubusercontent.com/felicianotech/pocket-casts-desktop-app/trunk/screenshot.png</image>
     </screenshot>
   </screenshots>
   <content_rating type="oars-1.1" />
