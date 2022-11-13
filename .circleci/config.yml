@@ -35,7 +35,6 @@ jobs:
           command: |
             sudo apt-get update && sudo apt-get install --yes \
               dpkg \
-              eu-strip \
               fakeroot \
               flatpak \
               flatpak-builder
