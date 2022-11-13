@@ -30,11 +30,7 @@ jobs:
       - image: cimg/node:16.14
     steps:
       - checkout
-      - run:
-          name: "Download Dependancies"
-          command: npm install
-      - node/install-packages:
-          include-branch-in-cache-key: false
+      - node/install-packages
       - run:
           name: "Build"
           command: |
