@@ -83,7 +83,8 @@
 					"name": "@electron-forge/maker-flatpak",
 					"config": {
 						"options": {
-							"categories": [ "Audio" ]
+							"categories": [ "Audio" ],
+							"mimeType": [ "video/h264" ]
 						}
 					}
 				}
