@@ -32,7 +32,7 @@ jobs:
       - checkout
       - run:
           name: "Install Dependancies"
-          command: sudo apt-get update && sudo apt-get install --yes dpkg fakeroot
+          command: sudo apt-get update && sudo apt-get install --yes dpkg fakeroot rpm
       - node/install-packages
       - run:
           name: "Build"
