@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   aptly: felicianotech/aptly@0.1
-  node: circleci/node@5.0
+  node: circleci/node@5.1
 
 workflows:
   main:
@@ -43,7 +43,7 @@ jobs:
           path: out/make
   deb-publish:
     docker:
-      - image: cimg/base:2022.11
+      - image: cimg/base:2023.07
     steps:
       - attach_workspace:
           at: .
