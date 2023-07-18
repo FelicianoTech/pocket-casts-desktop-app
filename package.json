@@ -59,9 +59,11 @@
 		]
 	},
 	"devDependencies": {
-		"@electron-forge/cli": "^6.0.1",
-		"@electron-forge/maker-deb": "^6.0.1",
-		"@electron-forge/maker-zip": "^6.1.1",
+		"@electron-forge/cli": "^6.2.1",
+		"@electron-forge/maker-deb": "^6.2.1",
+		"@electron-forge/maker-squirrel": "^6.2.1",
+		"@electron-forge/maker-zip": "^6.2.1",
+		"@electron-forge/plugin-auto-unpack-natives": "^6.2.1",
 		"electron": "^25.3.0"
 	},
 	"config": {
@@ -80,5 +82,8 @@
 				}
 			]
 		}
+	},
+	"dependencies": {
+		"electron-squirrel-startup": "^1.0.0"
 	}
 }
