@@ -1,6 +1,7 @@
 version: 2.1
 
 orbs:
+  aptly: felicianotech/aptly@0.1
   node: circleci/node@5.0
 
 workflows:
@@ -47,20 +48,24 @@ jobs:
       - attach_workspace:
           at: .
       - add_ssh_keys
+      - run: echo 'pkg.atl.revidian.net ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBE16slz1okRPeUhxIpzBCn9rHqjk51ylxEYlYXvblswcxOQ0rPyAX6N8Bd2pnsh99xce/jaX2KJHPLPCc+zAXTg= root@li361-16' >> ~/.ssh/known_hosts
       - run: |
-          echo 'pkg.atl.revidian.net ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBE16slz1okRPeUhxIpzBCn9rHqjk51ylxEYlYXvblswcxOQ0rPyAX6N8Bd2pnsh99xce/jaX2KJHPLPCc+zAXTg= root@li361-16' >> ~/.ssh/known_hosts
-      - run: |
-          ssh pkg@pkg.atl.revidian.net "mkdir ~/incoming/arc-${CIRCLE_TAG}"
-          scp ./dist/*.deb pkg@pkg.atl.revidian.net:incoming/arc-${CIRCLE_TAG}/
-
-          # Ubuntu 20.04 Focal
-          ssh pkg@pkg.atl.revidian.net "aptly repo add ftech-ubuntu-focal-hubci ~/incoming/arc-${CIRCLE_TAG}/"
-          ssh pkg@pkg.atl.revidian.net "aptly snapshot create ftech-ubuntu-focal-hubci-arc-${CIRCLE_TAG} from repo ftech-ubuntu-focal-hubci"
-          ssh pkg@pkg.atl.revidian.net "aptly publish snapshot ftech-ubuntu-focal-hubci-arc-${CIRCLE_HUB} filesystem:ftech:/ubuntu"
-
-          # Ubuntu 21.10 Impish
-          ssh pkg@pkg.atl.revidian.net "aptly repo add ftech-ubuntu-impish-hubci ~/incoming/arc-${CIRCLE_TAG}/"
-          ssh pkg@pkg.atl.revidian.net "aptly snapshot create ftech-ubuntu-impish-hubci-arc-${CIRCLE_TAG} from repo ftech-ubuntu-impish-hubci"
-          ssh pkg@pkg.atl.revidian.net "aptly publish snapshot ftech-ubuntu-impish-hubci-arc-${CIRCLE_HUB} filesystem:ftech:/ubuntu"
-
-          ssh pkg@pkg.atl.revidian.net "rm -r ~/incoming/arc-${CIRCLE_TAG}"
+          ssh pkg@pkg.atl.revidian.net "mkdir ~/incoming/pocket-casts-${CIRCLE_TAG}"
+          scp ./dist/*.deb pkg@pkg.atl.revidian.net:incoming/pocket-casts-${CIRCLE_TAG}/
+      - aptly/publish-release:
+          hostname: "pkg@pkg.atl.revidian.net"
+          codename: "focal"
+          project: "pocket-casts"
+      - aptly/publish-release:
+          hostname: "pkg@pkg.atl.revidian.net"
+          codename: "jammy"
+          project: "pocket-casts"
+      - aptly/publish-release:
+          hostname: "pkg@pkg.atl.revidian.net"
+          codename: "kinetic"
+          project: "pocket-casts"
+      - aptly/publish-release:
+          hostname: "pkg@pkg.atl.revidian.net"
+          codename: "lunar"
+          project: "pocket-casts"
+      - run: ssh pkg@pkg.atl.revidian.net "rm -r ~/incoming/pocket-casts-${CIRCLE_TAG}"
