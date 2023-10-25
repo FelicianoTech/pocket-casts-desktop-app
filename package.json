@@ -1,6 +1,6 @@
 {
 	"name": "pocket-casts",
-	"version": "0.7.0-dev",
+	"version": "0.7.0",
 	"description": "Pocket Casts is one of the best podcast / podcatchers out there. This is their webapp packaged as a desktop app. The actual webapp itself is the official code from Pocket Casts/NPR. This snap was packaged by Ricardo N Feliciano (FelicianoTech).",
 	"homepage": "https://github.com/felicianotech/pocket-casts-desktop-app",
 	"license": "MIT",
