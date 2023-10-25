@@ -20,6 +20,13 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="0.6.0" date="2022-11-13">
+      <description>
+        <p>
+          This version updates the dependencies, including bumping Electron to version 17.
+        </p>
+      </description>
+    </release>
     <release version="0.5.0" date="2020-12-13">
       <description>
         <p>
