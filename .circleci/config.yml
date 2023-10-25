@@ -65,10 +65,10 @@ jobs:
           project: "pocket-casts"
       - aptly/publish-release:
           hostname: "pkg@pkg.atl.revidian.net"
-          codename: "kinetic"
+          codename: "lunar"
           project: "pocket-casts"
       - aptly/publish-release:
           hostname: "pkg@pkg.atl.revidian.net"
-          codename: "lunar"
+          codename: "mantic"
           project: "pocket-casts"
       - run: ssh pkg@pkg.atl.revidian.net "rm -r ~/incoming/pocket-casts-${CIRCLE_TAG}"
