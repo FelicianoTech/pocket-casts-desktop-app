@@ -20,6 +20,27 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="0.8.0" date="2024-07-23">
+      <description>
+        <p>
+          This version updates the dependencies, including the Electron framework.
+        </p>
+      </description>
+    </release>
+    <release version="0.7.0" date="2023-10-25">
+      <description>
+        <p>
+          This version updates the dependencies, including the Electron framework.
+        </p>
+      </description>
+    </release>
+    <release version="0.6.0" date="2022-11-13">
+      <description>
+        <p>
+          This version updates the dependencies, including bumping Electron to version 17.
+        </p>
+      </description>
+    </release>
     <release version="0.5.0" date="2020-12-13">
       <description>
         <p>
