@@ -42,7 +42,7 @@ jobs:
       - run:
           name: "Build"
           command: |
-            npm run make -- --arch=x64,arm64
+            npx electron-forge make -- --arch=x64,arm64
       - store_artifacts:
           path: out/make
   deb-publish:
