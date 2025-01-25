@@ -65,6 +65,10 @@ This app is built with Electron.
 I'm new to using Electron so I'll add more information here as I figure it out.
 The snap package itself is built with `electron-builder` so make sure to use that to build your own snap.
 
+```bash
+npx electron-forge make
+```
+
 
 ## License
 

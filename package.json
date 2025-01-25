@@ -25,24 +25,6 @@
 			"!flatpak",
 			"!.flatpak-builder"
 		],
-		"linux": {
-			"synopsis": "The Pocket Casts webapp, packaged for the desktop.",
-			"category": "Audio;AudioVideo",
-			"target": [
-				{
-					"target": "deb"
-				},
-				{
-					"target": "snap"
-				}
-			],
-			"icon": "icon.png"
-		},
-		"snap": {
-			"summary": "The Pocket Casts webapp, packaged for the desktop.",
-			"confinement": "strict",
-			"grade": "stable"
-		},
 		"deb": {
 			"desktop": {
 				"Icon": "/usr/share/icons/hicolor/0x0/apps/pocket-casts.png"

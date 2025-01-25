@@ -5,7 +5,16 @@ module.exports = {
 			name: '@electron-forge/maker-zip'
 		},
 		{
-			name: '@electron-forge/maker-deb'
+			name: '@electron-forge/maker-deb',
+			config: {
+				options: {
+					productName: "Pocket Casts",
+					maintainer: "Ricardo N Feliciano",
+					homepage: "https://www.Feliciano.Tech",
+					icon: "img/icon-x512.png",
+					categories: ["Audio", "AudioVideo"]
+				}
+			}
 		}
 	]
 };
