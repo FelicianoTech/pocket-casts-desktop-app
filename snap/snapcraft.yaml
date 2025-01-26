@@ -1,0 +1,39 @@
+name: pocket-casts
+base: core24
+version: '0.9.0'
+summary: "The Pocket Casts webapp, packaged for the desktop."
+description: |
+  Pocket Casts is one of the best podcast / podcatchers out there. This is
+  their webapp packaged as a desktop app. The actual webapp itself is the 
+  official code from Pocket Casts/NPR. This snap was packaged by Ricardo N 
+  Feliciano (FelicianoTech).
+
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
+
+parts:
+  pocket-casts:
+    plugin: dump
+    source:
+      - on amd64: out/make/deb/x64/pocket-casts_0.9.0_amd64.deb
+      - on arm64: out/make/deb/arm64/pocket-casts_0.9.0_arm64.deb
+    source-type: deb
+    stage-packages:
+      - libasound2
+      - libgbm1
+      - libgtk-3-0
+      - libnss3
+      - libproxy1v5
+      - glib-networking
+    override-build: |
+      craftctl default
+      sed -i 's|Icon=pocket-casts|Icon=usr/share/pixmaps/pocket-casts.png|' $CRAFT_PART_INSTALL/usr/share/applications/pocket-casts.desktop
+
+apps:
+  pocket-casts:
+    command: usr/bin/pocket-casts
+    desktop: usr/share/applications/pocket-casts.desktop
+    extensions: [gnome]
+    #plugs:
+    #  - desktop
+    #  - wayland

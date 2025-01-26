@@ -26,6 +26,6 @@ module.exports = {
 					categories: ["Audio", "AudioVideo"]
 				}
 			}
-		},
+		}
 	]
 };
