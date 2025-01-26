@@ -15,6 +15,17 @@ module.exports = {
 					categories: ["Audio", "AudioVideo"]
 				}
 			}
-		}
+		},
+		{
+			name: '@electron-forge/maker-rpm',
+			config: {
+				options: {
+					productName: "Pocket Casts",
+					homepage: "https://www.Feliciano.Tech",
+					icon: "img/icon-x512.png",
+					categories: ["Audio", "AudioVideo"]
+				}
+			}
+		},
 	]
 };
