@@ -11,6 +11,10 @@ description: |
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 
+platforms:
+  amd64:
+  arm64:
+
 parts:
   pocket-casts:
     plugin: dump
@@ -19,21 +23,27 @@ parts:
       - on arm64: out/make/deb/arm64/pocket-casts_0.9.0_arm64.deb
     source-type: deb
     stage-packages:
+      - glib-networking
       - libasound2
       - libgbm1
       - libgtk-3-0
       - libnss3
       - libproxy1v5
-      - glib-networking
     override-build: |
       craftctl default
       sed -i 's|Icon=pocket-casts|Icon=usr/share/pixmaps/pocket-casts.png|' $CRAFT_PART_INSTALL/usr/share/applications/pocket-casts.desktop
+    prime:
+      - -usr/lib/pocket-casts/chrome-sandbox
 
 apps:
   pocket-casts:
-    command: usr/bin/pocket-casts
+    command: usr/bin/pocket-casts --no-sandbox
     desktop: usr/share/applications/pocket-casts.desktop
     extensions: [gnome]
-    #plugs:
-    #  - desktop
-    #  - wayland
+    plugs:
+      - browser-support
+      - network
+      - desktop
+      - wayland
+      - audio-playback
+      - alsa
