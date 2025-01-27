@@ -1,6 +1,6 @@
 name: pocket-casts
 base: core24
-version: '0.9.0'
+version: '0.10.0'
 summary: "The Pocket Casts webapp, packaged for the desktop."
 description: |
   Pocket Casts is one of the best podcast / podcatchers out there. This is
@@ -19,8 +19,8 @@ parts:
   pocket-casts:
     plugin: dump
     source:
-      - on amd64: out/make/deb/x64/pocket-casts_0.9.0_amd64.deb
-      - on arm64: out/make/deb/arm64/pocket-casts_0.9.0_arm64.deb
+      - on amd64: https://github.com/FelicianoTech/pocket-casts-desktop-app/releases/download/v0.10.0/pocket-casts_0.10.0_amd64.deb
+      - on arm64: https://github.com/FelicianoTech/pocket-casts-desktop-app/releases/download/v0.10.0/pocket-casts_0.10.0_arm64.deb
     source-type: deb
     stage-packages:
       - glib-networking

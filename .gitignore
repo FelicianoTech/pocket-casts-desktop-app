@@ -4,3 +4,4 @@ node_modules
 flatpak-build
 out/
 *.snap
+snapcraft-pocket-casts-*.txt
