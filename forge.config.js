@@ -27,5 +27,19 @@ module.exports = {
 				}
 			}
 		}
+	],
+	publishers: [
+		{
+			name: '@electron-forge/publisher-github',
+			config: {
+				repository: {
+					owner: 'FelicianoTech',
+					name: 'pocket-casts-desktop-app'
+				},
+				generateReleaseNotes: true,
+				prerelease: false,
+				draft: false
+			}
+		}
 	]
 };
