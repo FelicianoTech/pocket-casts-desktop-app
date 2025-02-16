@@ -3,5 +3,7 @@ node_modules
 .flatpak-builder
 flatpak-build
 out/
+
+# Snapcraft
 *.snap
 snapcraft-pocket-casts-*.txt
