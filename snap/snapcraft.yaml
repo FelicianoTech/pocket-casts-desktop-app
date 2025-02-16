@@ -1,6 +1,6 @@
 name: pocket-casts
 base: core24
-version: '0.10.0'
+version: '0.10.1'
 summary: "The Pocket Casts webapp, packaged for the desktop."
 description: |
   Pocket Casts is one of the best podcast / podcatchers out there. This is
