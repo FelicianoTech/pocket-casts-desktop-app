@@ -20,6 +20,13 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="0.10.1" date="2025-02-16">
+      <description>
+        <p>
+          This version updates some dependencies.
+        </p>
+      </description>
+    </release>
     <release version="0.10.0" date="2025-01-27">
       <description>
         <p>
