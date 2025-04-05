@@ -20,6 +20,13 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="0.10.2" date="2025-04-05">
+      <description>
+        <p>
+          Updates Electron to v34.5.0. This fixes a Wayland resizing bug in the process.
+        </p>
+      </description>
+    </release>
     <release version="0.10.1" date="2025-02-16">
       <description>
         <p>
