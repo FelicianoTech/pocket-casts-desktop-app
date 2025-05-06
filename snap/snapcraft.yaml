@@ -19,8 +19,8 @@ parts:
   pocket-casts:
     plugin: dump
     source:
-      - on amd64: https://github.com/FelicianoTech/pocket-casts-desktop-app/releases/download/v$SNAPCRAFT_PROJECT_VERSION/pocket-casts_$SNAPCRAFT_PROJECT_VERSION_amd64.deb
-      - on arm64: https://github.com/FelicianoTech/pocket-casts-desktop-app/releases/download/v$SNAPCRAFT_PROJECT_VERSION/pocket-casts_$SNAPCRAFT_PROJECT_VERSION_arm64.deb
+      - on amd64: "https://github.com/FelicianoTech/pocket-casts-desktop-app/releases/download/v$SNAPCRAFT_PROJECT_VERSION/pocket-casts_$SNAPCRAFT_PROJECT_VERSION_amd64.deb"
+      - on arm64: "https://github.com/FelicianoTech/pocket-casts-desktop-app/releases/download/v$SNAPCRAFT_PROJECT_VERSION/pocket-casts_$SNAPCRAFT_PROJECT_VERSION_arm64.deb"
       # Debug
       #- on amd64: "./out/make/deb/x64/pocket-casts_0.10.1_amd64.deb"
     source-type: deb
