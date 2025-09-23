@@ -20,6 +20,13 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="0.10.5" date="2025-09-23">
+      <description>
+        <p>
+          Updates Electron to v36.8.1. Also updates dependencies with security fixes.
+        </p>
+      </description>
+    </release>
     <release version="0.10.4" date="2025-07-18">
       <description>
         <p>
