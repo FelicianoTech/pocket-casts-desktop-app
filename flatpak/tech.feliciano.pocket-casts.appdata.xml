@@ -20,6 +20,11 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="0.12.0" date="2026-03-17">
+      <description>
+        <p>Updates Electron to v40.8.2.</p>
+      </description>
+    </release>
     <release version="0.11.1" date="2025-12-12">
       <description>
         <p>Updates Electron to v38.7.2.</p>
