@@ -20,6 +20,11 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="0.13.0" date="2026-06-20">
+      <description>
+        <p>Updates Electron to v42.4.0. Updates Electron Forge plugins to v7.11.2.</p>
+      </description>
+    </release>
     <release version="0.12.1" date="2026-04-06">
       <description>
         <p>Updates Electron to v40.8.5.</p>
